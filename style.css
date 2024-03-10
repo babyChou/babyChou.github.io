@@ -227,10 +227,9 @@ img {
 
 .img_detail {
    display: none;
-/*   display: flex;*/
+   position: absolute;
 }
 
 .img_detail > img {
   width: 50%;
-/*  opacity: 0;*/
 }

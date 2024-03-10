@@ -18,7 +18,8 @@ $(function(){
 		$imgDetail.css({
 			'z-index' : 99,
 			'display' : 'flex',
-			'position' : 'fixed'
+			'transform': 'translateY(50%)'
 		});
+		$('body').append('<div style="position:fixed; z-index:90; width:100vw; height:100vh; background-color: rgba(50, 54, 65);"></div>');
 	});
 });

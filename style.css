@@ -1,3 +1,25 @@
+/* Basic CSS Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
 body {
   background: #323641;
 }
@@ -104,12 +126,14 @@ img {
   background: radial-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
 }
 
-.letter-image:hover .animated-mail {
+/*.letter-image:hover .animated-mail {*/
+.letter-image.active .animated-mail {
   transform: translateY(15px);
   -webkit-transform: translateY(15px);
   -moz-transform: translateY(15px);
 }
-.letter-image:hover .animated-mail .top-fold {
+/*.letter-image:hover .animated-mail .top-fold {*/
+.letter-image.active .animated-mail .top-fold {
   transition: transform 0.4s, z-index 0.2s;
   transform: rotateX(180deg);
   -webkit-transition: transform 0.4s, z-index 0.2s;
@@ -118,7 +142,8 @@ img {
   -moz-transform: rotateX(180deg);
   z-index: 0;
 }
-.letter-image:hover .animated-mail .letter {
+.letter-image.active .animated-mail .letter {
+/*.letter-image:hover .animated-mail .letter {*/
   height: calc(28vw*1.46);
   bottom: 18vw;
   content: 'ram avtar';
@@ -130,17 +155,7 @@ img {
 
 /* -----  */
 
-.codepen-wrapper {
- /* display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #d9dcd6;
-  height: 100vh;*/
-}
-
 .book {
-/*  height: 15rem;
-  width: 15rem;*/
   font-size: 1.4rem;
   box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.25);
   text-align: center;
@@ -168,7 +183,9 @@ img {
   z-index: 2;
 }
 .page__1::after {
-  content: "Neat, huh?";
+  content: "";
+  background-image: url('2.png'); 
+  background-size: cover;
   color: #eff0eb;
   position: absolute;
   padding-top: 1.5rem;
@@ -178,7 +195,6 @@ img {
   width: 100%;
   height: 100%;
   z-index: 1;
-/*  opacity: 0;*/
   opacity: 0;
   transform: rotateY(180deg);
   transition: all 0.3s 0.5s;
@@ -206,4 +222,15 @@ img {
 }
 .page.active .page__1::after {
   opacity: 1;
+}
+/*----*/
+
+.img_detail {
+   display: none;
+/*   display: flex;*/
+}
+
+.img_detail > img {
+  width: 50%;
+/*  opacity: 0;*/
 }

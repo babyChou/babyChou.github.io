@@ -41,9 +41,10 @@ $(function(){
 				width: $letter.width()*2,
 				display: 'flex'
 			});
+			$mail.hide();
 
 			$mail.animate({
-				opacity: 0
+				//opacity: 0
 			}, 500);
 
 			$imgDetail.animate({
@@ -59,6 +60,10 @@ $(function(){
 		}, 500);
 
 	}
+
+	$imgDetail.click(function(){
+		$imgDetail.toggleClass('active');
+	});
 
 	// $(window).on("orientationchange", function(event) {
 	// 	console.log(event )

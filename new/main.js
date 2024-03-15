@@ -13,7 +13,7 @@ $(function(){
 	function openMail() {
 		setTimeout(function() {
 			$mail.addClass('active');
-			openCard();
+			// openCard();
 		}, 0.5);
 
 	}
@@ -26,9 +26,11 @@ $(function(){
 	}
 
 	function showLetter() {
+		// setTimeout(function() {
+		// 	$letter.css('overflow','visible');
+		// }, 100);
 		setTimeout(function() {
-			$letter.css('overflow','visible');
-			zoomOut();
+			// zoomOut();
 		}, 800);
 	}
 
@@ -39,7 +41,8 @@ $(function(){
 				left: $letter.offset().left - $letter.width(),
 				top: $letter.offset().top,
 				width: $letter.width()*2,
-				display: 'flex'
+				display: 'flex',
+				'transform-origin': '50% 50%',
 			});
 			$mail.hide();
 
@@ -47,15 +50,29 @@ $(function(){
 				//opacity: 0
 			}, 500);
 
-			$imgDetail.animate({
-				width: '100vw',
-				left: 0,
-				top: '27%'
-			}, 500, () => {
-				
-				// $imgDetail.css('width','');
-				// $imgDetail.css('top','');
-			});
+			if(screen.width > screen.height) {
+				$imgDetail.animate({
+					height: '100vh',
+					
+					left: ($('body').width() - $imgDetail.width()*2)/2,
+					top:0
+				}, 500, () => {
+					$imgDetail.css('width','');
+					$imgDetail.css('top','');
+				});
+			}else{
+
+				$imgDetail.animate({
+					width: '100vw',
+					left: 0,
+					top: '27%'
+				}, 500, () => {
+					
+					// $imgDetail.css('width','');
+					// $imgDetail.css('top','');
+				});
+			}
+
 
 		}, 500);
 
@@ -64,6 +81,16 @@ $(function(){
 	$imgDetail.click(function(){
 		$imgDetail.toggleClass('active');
 	});
+
+	$letter[0].addEventListener("animationend", EndletterFunction);
+
+
+	function EndletterFunction() {
+		$page.addClass('active');
+		setTimeout(function() {
+			zoomOut();
+		}, 500);
+	}
 
 	// $(window).on("orientationchange", function(event) {
 	// 	console.log(event )

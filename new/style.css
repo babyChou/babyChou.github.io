@@ -26,6 +26,15 @@ time, mark, audio, video {
   --letter-width: calc((var(--mail-width)/2) - 2vw);
 }
 
+@media (orientation: landscape) {
+  :root {
+    --mail-width: 30vw;
+    --mail-height: 15vw;
+    --letter-width: calc((var(--mail-width)/2) - 2vw);
+  }
+}
+
+
 body {
   background: #323641;
 }
@@ -109,10 +118,10 @@ body {
   background: white;
   z-index: 1;
   overflow: hidden;
-  -webkit-transition: 0.4s 0.2s;
+  /* -webkit-transition: 0.4s 0.2s;
   -moz-transition: 0.4s 0.2s;
-  transition: 0.4s 0.2s;
-  animation-end: animationFinished;
+  transition: 0.4s 0.2s; */
+
 }
 
 
@@ -150,11 +159,27 @@ body {
   }
   .letter-image.active .animated-mail .letter {
 /*.letter-image:hover .animated-mail .letter {*/
-  height: calc(var(--letter-width)*1.46);
+  /* height: calc(var(--letter-width)*1.46);
   bottom: 100%;
   content: 'ram avtar';
   color: #000;
+  overflow: visible; */
+  animation-fill-mode: forwards;
+  animation-duration: 0.7s;
+  animation-name: slideletter;
+
 }
+
+@keyframes slideletter {
+  to {
+    height: calc(var(--letter-width)*1.46);
+    bottom: 100%;
+    content: 'ram avtar';
+    color: #000;
+    overflow: visible;
+  }
+}
+
 .letter-image:hover .shadow {
   width: 250px;
 }
@@ -254,6 +279,7 @@ body {
 /*   display: flex;*/
 position: absolute;
 }
+
 
 .img_detail > img {
   width: 50%;
